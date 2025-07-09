@@ -27,7 +27,7 @@ jobs:
           run: echo "running test on test branch with pull trigger"
 
   on-workflow_dispatch:
-      if: github.event_name == "workflow_dispatch"
+      if: github.event_name == 'workflow_dispatch'
       runs-on: ubuntu-latest
       steps:
         - name: manually trigger
