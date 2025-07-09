@@ -8,6 +8,10 @@ on:
   pull_request:
     branches:
         - main
+    types:
+      - closed
+  workflow_dispatch:
+    
 
 jobs:
   on-push:
@@ -23,3 +27,10 @@ jobs:
       steps:
         - name: running test on test branch with pull trigger
           run: echo "running test on test branch with pull trigger"
+
+  on-workflow_dispatch:
+      if: github.event_name == 'workflow_dispatch'
+      runs-on: ubuntu-latest
+      steps:
+        - name: manually trigger
+          run: echo "workfloe dispacth manual trigger"
