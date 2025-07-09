@@ -1,0 +1,25 @@
+name: Multi event run pipeline
+
+on: 
+  push:
+    branches:
+        - main
+        - test
+  pull_request:
+    branches:
+        - main
+
+jobs:
+  on-push:
+      if: github.event_name == 'push'
+      runs-on: ubuntu-latest
+      steps:
+        - name: running test on master branch with push trigger
+          run: echo "running test on master branch with push trigger"
+
+  on-pull-request:
+      if: github.event_name == 'pull_request'
+      runs-on: ubuntu-latest
+      steps:
+        - name: running test on test branch with pull trigger
+          run: echo "running test on test branch with pull trigger"
